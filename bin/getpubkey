@@ -1,0 +1,38 @@
+#!/usr/bin/env node
+
+const program           = require('commander');
+const pkg               = require('../package.json');
+
+const taguipdpay        = require('../lib/taguidpay-utils');
+
+program
+    .version(pkg.version, '-v, --version')
+    .option('--private', 'Display private key')
+    .option('--loop', 'Continue reading')
+    .parse(process.argv);
+
+taguipdpay.nfc_loop(read_key, program.loop? false:true);
+    
+async function read_key(reader, card) {
+    const key = taguipdpay.key(card);
+    console.info(``);
+    console.info(`Public key:`, key.public);
+    if( program.private ) {
+        console.info('Private key: ' + key.private);
+    }
+    console.info(``);
+}
+
+
+
+
+
+
+
+
+/*
+ Local Variables:
+ mode: javascript
+ indent-tabs-mode: nil
+ End:
+*/

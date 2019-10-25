@@ -1,0 +1,30 @@
+{
+    "name": "taguidpay",
+    "version": "0.0.1",
+    "description": "Blockchain payments with NFC tag UID",
+    "license": "MIT",
+    "homepage": "https://github.com/cc32d9/taguidpay",
+    "author": {
+        "name": "cc32d9",
+        "url": "https://github.com/cc32d9"
+    },
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/cc32d9/taguidpay.git"
+    },
+    "files": [
+        "lib/*.js"
+    ],
+    "bin": {
+        "initcard": "./bin/getpubkey"
+    },
+    "engines": {
+        "node": ">= 0.8.0"
+    },
+    "dependencies": {
+        "nfc-pcsc": "^0.7.4",
+        "commander": "^2.19.0",
+        "node-fetch": ">= 2.6.0",
+        "eosjs": "^20.0.0"
+    }
+}
